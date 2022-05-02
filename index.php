@@ -10,7 +10,7 @@ $executeIsOk = $pdoState->execute();
 
 //recuperation des résultats
 $velos = $pdoState->fetchAll();
-var_dump($velos);
+// var_dump($velos);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,6 +29,19 @@ var_dump($velos);
 
     <main>
         <h1 class="text-center my-5">Site de Vélos Vous souhaite la Bienvenue !</h1>
+        <div class="container">
+            <div class="p-1 d-flex flex-wrap text-center">
+                <?php foreach ($velos as $velo) : ?>
+                    <div class="card-body">
+                        <img src=" <?= $velo['image'] ?>" alt="" width="200px" height="200px">
+                        <p class="card-text">Genre : <?= $velo['genre'] ?></p>
+                        <p class="card-text">Description : <?= $velo['description'] ?></p>
+                    </div>
+                <?php endforeach ?>
+            </div>
+        </div>
+
+
     </main>
 
 </body>
